@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-title>Watch</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="this-sunday" [ngStyle]="{'background-image': 'url(' + featuredSermon['image'] + ')'}">
+		<div class="dark">
+			<div class="play-btn" [navPush]="pushPage" [navParams]="{ 'permalink': featuredSermon['permalink'] }"><div class="play-icon"></div></div>
+			<div class="video-desc">
+				<p>Latest Sermon</p>
+				<h2>{{ featuredSermon['title'] }}</h2>
+			</div>
+		</div>
+	</div>
+
+	<ion-grid>
+		<ion-row>
+
+			<ion-col col-6 *ngFor="let sermon of sermons">
+				<ion-card [navPush]="pushPage" [navParams]="{ 'permalink': sermon['permalink'] }">
+					<img [src]="sermon['image']">
+					<ion-item>
+						<h2>{{ sermon['title'] }}</h2>
+						<p *ngIf="sermon['series']">{{ sermon['series']['title'] }}</p>
+					</ion-item>
+				</ion-card>
+			</ion-col>
+
+		</ion-row>
+	</ion-grid>
+
+	<a class="cta" (click)="loadMore()">Load More</a>
+</ion-content>

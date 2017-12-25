@@ -1,0 +1,11 @@
+.give-banner {
+	background-image: url('https://i.imgur.com/DjXSkDh.jpg');
+	max-height: 100vh;
+	height: calc(100vh - 85px);
+	width: 100%;
+	display: block;
+	background-size: cover;
+	background-position: top left;
+	overflow: hidden;
+	box-sizing: border-box;
+}

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="light">
+  </ion-navbar>
+</ion-header>
+
+<ion-content *ngIf="details['startsAt']">
+	<div class="image-header" [ngStyle]="{ 'background-image':'url(' + details['image'] + ')', 'background-position': 'center' }">
+	</div>
+	<div class="meta-bar">
+		<ul>
+			<li *ngIf="details['location']">{{ details['location'] }}</li>
+			<li>{{ details['startsAt'] }}</li>
+		</ul>
+	</div>
+	<div class="page-details">
+		<h1>{{ details['title'] }}</h1>
+		<p>{{ details['description'] }}</p>
+		<a
+			class="cta"
+			*ngIf="details['inlineAction']"
+			(click)="openUrl(details['inlineAction']['externalUrl'])"
+			color="dark"
+			>{{ details['inlineAction']['label'] }}</a>
+	</div>
+</ion-content>

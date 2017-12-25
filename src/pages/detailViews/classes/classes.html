@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar color="light">
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="image-header" [ngStyle]="{ 'background-image':'url(' + details['image'] + ')' }">
+	</div>
+	<div class="page-details">
+		<h1>{{ details['title'] }}</h1>
+		<p>{{ details['description'] }}</p>
+
+		<h2>Start Dates</h2>
+		<div class="post-card" *ngFor="let date of details['dates']">
+			<div class="column">
+				<h3>{{ date['start'] }} @ {{ date['time'] }}</h3>
+				<p *ngIf="date['location']">
+					<a *ngIf="date['location']['externalUrl']"
+						[href]="date['location']['externalUrl']">{{ date['location']['label'] }}</a>
+				</p>
+				<p *ngIf="date['end']">Ends {{ date['end'] }}</p>
+			</div>
+			<div class="spacer"></div>
+			<div class="column column-cta">
+				<a class="cta"
+					*ngIf="date['inlineAction'] && date['inlineAction']['internalUrl']"
+					[href]="date['inlineAction']['internalUrl']">
+					{{ date['inlineAction']['label'] }}
+				</a>
+				<a class="cta"
+					*ngIf="date['inlineAction'] && date['inlineAction']['externalUrl']"
+					[href]="date['inlineAction']['externalUrl']">
+					{{ date['inlineAction']['label'] }}
+				</a>
+			</div>
+		</div>
+	</div>
+</ion-content>

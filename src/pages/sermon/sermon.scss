@@ -1,0 +1,30 @@
+page-sermon {
+	img {
+		object-fit: cover;
+	}
+
+	.video-container {
+		display: block;
+		width: 100%;
+		height: 0;
+		padding-bottom: 56%;
+		background-color: #333;
+		background-size: cover;
+		background-position: center center;
+	}
+
+	.sermon-details {
+		width: 100%;
+		display: block;
+		background: #fff;
+		color: #333;
+		box-sizing: border-box;
+		overflow: hidden;
+		padding: 8px;
+		border-bottom: 1px solid #ccc;
+	}
+
+	video {
+		width: 100%;
+	}
+}

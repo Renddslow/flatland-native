@@ -1,0 +1,61 @@
+page-watch {
+	padding: 0;
+	margin: 0;
+
+	.this-sunday {
+		width: 100%;
+		background: #fff;
+		display: block;
+		overflow: hidden;
+		height: 65vh;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+
+		.dark {
+			background: rgba(0,0,0,0.4);
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.play-btn {
+			display: block;
+			width: 7em;
+			height: 7em;
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 100%;
+			position: relative;
+			margin: 11em auto 0;
+
+			.play-icon {
+				width: 0;
+				height: 0;
+				border-top: 25px solid transparent;
+			  border-bottom: 25px solid transparent;
+				border-left: 40px solid #333;
+				top: 25%;
+				left: 35%;
+				position: absolute;
+			}
+		}
+
+		.video-desc {
+			color: #fff;
+			p {
+				text-align: center;
+				font-size: 1.5em;
+				margin-bottom: .2em;
+			}
+
+			h2 {
+				margin-top: 0;
+				font-weight: 300;
+				font-size: 3em;
+				text-align: center;
+			}
+		}
+	}
+}

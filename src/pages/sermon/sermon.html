@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar color="light">
+		<ion-buttons end>
+			<button ion-button icon-only (click)="shareSermon()">
+				<ion-icon name="share-outline"></ion-icon>
+			</button>
+		</ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="video-container" [ngStyle]="{'background-image': 'url(' + sermon['image'] + ')'}">
+		<video *ngIf="videos[0] && videos[0]['url']" [src]="videos[0]['url']" playsinline autoplay controls></video>
+	</div>
+	<div class="sermon-details">
+		<h2>{{ sermon['title'] }}</h2>
+		<span *ngIf="sermon['series']">{{ sermon['series']['title'] }}</span>
+		<p *ngIf="sermon && sermon['description']">{{ sermon['description'] }}</p>
+		<p *ngIf="sermon && !sermon['description'] && sermon['series']">{{ sermon['series']['description'] }}</p>
+	</div>
+	<ion-list *ngIf="relatedSermons">
+		<ion-list-header>
+			More from this series
+		</ion-list-header>
+		<ion-item *ngFor="let relatedSermon of relatedSermons" [navPush]="pushPage" [navParams]="{ 'permalink': relatedSermon['permalink'] }">
+			<ion-thumbnail item-start>
+				<img [src]="relatedSermon['image']">
+			</ion-thumbnail>
+			{{ relatedSermon['title'] }}
+			<ion-icon name="play" item-end></ion-icon>
+		</ion-item>
+	</ion-list>
+</ion-content>

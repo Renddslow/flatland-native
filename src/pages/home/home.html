@@ -1,17 +1,46 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
+  <ion-navbar color="light">
+    <ion-title>Flatland Church</ion-title>
+		<ion-buttons end>
+			<button ion-button icon-only (click)="presentWeeklyGuideModal()">
+				<ion-icon name="map"></ion-icon>
+			</button>
+		</ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+<ion-content>
+
+	<ion-refresher (ionRefresh)="refreshFeed($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+	<ion-card *ngFor="let feedItem of feed" [navPush]="getDetailView(feedItem['type'])" [navParams]="{ permalink: feedItem['permalink'] }">
+		<ion-item>
+			<ion-icon name="{{ feedItem['icon'] }}"></ion-icon>
+			<ion-badge item-end color="secondary">{{ formatDate(feedItem['date']) }}</ion-badge>
+		</ion-item>
+
+		<img *ngIf="feedItem['image']" [src]="feedItem['image']">
+
+		<ion-item *ngIf="feedItem['type'] === 'sermon'">
+			<h2>{{ feedItem['title'] }}</h2>
+			<p>{{ feedItem['series'] }}</p>
+		</ion-item>
+
+		<ion-item *ngIf="feedItem['type'] !== 'sermon' && feedItem['title']">
+			<h2>{{ feedItem['title'] }}</h2>
+		</ion-item>
+		<ion-card-content *ngIf="feedItem['description']">
+			{{ feedItem['description'] }}
+		</ion-card-content>
+	</ion-card>
+
+	<ion-fab right bottom>
+		<button ion-fab color="dark" (click)="presentNotes()">
+			<ion-icon name="create"></ion-icon>
+		</button>
+    <!-- <button ion-fab color="primary"><ion-icon name="chatboxes"></ion-icon></button> -->
+  </ion-fab>
+
 </ion-content>

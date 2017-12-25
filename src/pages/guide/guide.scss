@@ -1,0 +1,34 @@
+ion-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.worship-set {
+	background: linear-gradient(135deg, #ACC35C 0%, #06A77D 100%);
+	min-height: 300px;
+	box-sizing: border-box;
+	padding: .5em 0 1.5em;
+	color: #fff;
+	margin: 2px 0;
+  font-size: 1.9rem;
+  font-weight: normal;
+}
+
+.worship-set .card {
+	color: #333;
+}
+
+.worship-set-item {
+	padding-bottom: 8px;
+}
+
+.series-graphic {
+	height: 0;
+	width: 100%;
+	padding-bottom: 56%;
+	display: block;
+	background-size: cover;
+	background-position: center center;
+}

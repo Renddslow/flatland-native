@@ -14,3 +14,90 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800|Montserrat:300,400,800');
+
+p {
+	font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+}
+
+.content {
+	background-color: #f9f9f9;
+}
+
+.image-header {
+	width: 100%;
+	display: block;
+	height: 40vh;
+	background-color: #333;
+	background-size: cover;
+}
+
+.meta-bar {
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	box-sizing: border-box;
+	overflow: hidden;
+	background: #333;
+	color: #fff;
+}
+
+.page-details {
+	width: 100%;
+	display: block;
+	background: #fff;
+	color: #333;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 8px;
+	border-bottom: 1px solid #ccc;
+}
+
+.cta {
+  max-width: 295px;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+  color: #eee;
+  font-family: 'Open Sans',sans-serif;
+  font-weight: 300;
+  background: #333;
+  padding: 1em 0;
+  box-sizing: border-box;
+	text-decoration: none;
+}
+
+.post-card {
+	width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 1em auto;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.16), 0 0 0 1px rgba(0,0,0,.08);
+  border-radius: 2px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.spacer {
+		flex: 1 1 auto;
+}
+
+.column {
+	padding: 12px 8px;
+}
+
+.column-cta {
+	width: 33%;
+}
+
+h3 {
+	font-weight: normal;
+}

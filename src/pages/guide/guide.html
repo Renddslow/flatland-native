@@ -1,0 +1,116 @@
+<ion-header>
+  <ion-navbar color="light">
+		<ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="dark" showWhen="ios">Close</span>
+        <ion-icon name="close" showWhen="android, windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Weekly Guide</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+	<div class="series-graphic" [ngStyle]="{'background-image': 'url(' + guide['image'] + ')'}"></div>
+
+	<ion-card>
+		<ion-card-header>
+			Welcome to Flatland Church
+		</ion-card-header>
+		<ion-card-content>
+			We are so excited to see what God does in you life this week. Let us know if it's your first time here, or check in to let us know you're back.
+		</ion-card-content>
+		<!-- <ion-row>
+			<ion-col right text-right>
+				<button ion-button icon-left clear>
+	        <ion-icon name="checkmark-circle-outline"></ion-icon>
+					<div>Check In</div>
+	      </button>
+			</ion-col>
+		</ion-row> -->
+	</ion-card>
+
+	<!-- Weekly cards -->
+	<ion-card (click)="openUrl('https://flatlandchurch.com/blog')">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://i.imgur.com/j5egNt6.jpg">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Go Beyond the Sermon</h2>
+				<p>Dive into regular content that unpacks our weekly sermons in an even deeper way throughout the week at flatlandchurch.com/blog</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+
+	<ion-card (click)="openUrl('https://flatlandchurch.com/move/groups')">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://c1.staticflickr.com/9/8754/28383597226_af2f1ba06a_k.jpg">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Join a Group</h2>
+				<p>Experience the belonging that comes from being in community with people. Try out one of our series-based life groups this week.</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+
+	<div class="worship-set">
+		<ion-row margin>
+			<ion-col col-1>
+				<ion-icon name="ios-musical-notes"></ion-icon>
+			</ion-col>
+			<ion-col left text-left col-9>
+				<div>Today's Worship Set</div>
+			</ion-col>
+		</ion-row>
+
+		<ion-card>
+			<ion-card-content>
+				<div class="worship-set-item" *ngFor="let song of guide['setList']">
+					<h2>{{ song['title'] }}</h2>
+					<p>{{ song['authors'] }}</p>
+				</div>
+			</ion-card-content>
+		</ion-card>
+
+	</div>
+	<!-- Classes -->
+	<ion-label margin>What's Next?</ion-label>
+	<ion-card [navPush]="getDetailView()" [navParams]="{ permalink: 'next-step' }">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://i.imgur.com/pH8Ijnr.jpg">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Next Step Class</h2>
+				<p>Join our lead pastor Bart and Jen Wilkins for a four week class that explore the history, beliefs, and your next steps at Flatland.</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card [navPush]="getDetailView()" [navParams]="{ permalink: 'freedom-in-christ' }">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://i.imgur.com/Mc6AmWQ.png">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Freedom in Christ</h2>
+				<p>Learn how to break free of the baggage and bondages that are keeping you from moving forward in your walk with Christ.</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card [navPush]="getDetailView()" [navParams]="{ permalink: 'financial-peace-university' }">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://cdn.ramseysolutions.net/church/fpu/download/promo-materials/financial-peace-slide-large-logo.jpg">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Financial Peace University</h2>
+				<p>There is nothing like the peace that comes from having your finances in order. Find out how in the widely acclaimed Financial Peace University from Dave Ramsey.</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+
+	<!-- Sermon -->
+	<!-- Giving -->
+</ion-content>
