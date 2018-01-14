@@ -31,26 +31,24 @@
 	</ion-card>
 
 	<!-- Weekly cards -->
-	<ion-card (click)="openUrl('https://flatlandchurch.com/blog')">
+	<ion-card (click)="openUrl(guide['verse']['externalUrl'])">
+		<ion-card-header>
+			Today's Passage
+		</ion-card-header>
+		<ion-card-content>
+			<p *ngIf="guide['verse']">{{ guide['verse']['text'] }}</p>
+			<p *ngIf="guide['verse']" class="rtl"><strong>{{ guide['verse']['reference'] }}</strong></p>
+		</ion-card-content>
+	</ion-card>
+
+	<ion-card (click)="openUrl(guide['ownersManual'])">
 		<ion-row>
 			<ion-col col-4>
 				<img src="https://i.imgur.com/j5egNt6.jpg">
 			</ion-col>
 			<ion-col col-8>
-				<h2>Go Beyond the Sermon</h2>
-				<p>Dive into regular content that unpacks our weekly sermons in an even deeper way throughout the week at flatlandchurch.com/blog</p>
-			</ion-col>
-		</ion-row>
-	</ion-card>
-
-	<ion-card (click)="openUrl('https://flatlandchurch.com/move/groups')">
-		<ion-row>
-			<ion-col col-4>
-				<img src="https://c1.staticflickr.com/9/8754/28383597226_af2f1ba06a_k.jpg">
-			</ion-col>
-			<ion-col col-8>
-				<h2>Join a Group</h2>
-				<p>Experience the belonging that comes from being in community with people. Try out one of our series-based life groups this week.</p>
+				<h2>Get the Most Out of the Sermon</h2>
+				<p>Get the Owners Manual for this sermon series to get the most out of this Sunday.</p>
 			</ion-col>
 		</ion-row>
 	</ion-card>
@@ -85,6 +83,17 @@
 			<ion-col col-8>
 				<h2>Next Step Class</h2>
 				<p>Join our lead pastor Bart and Jen Wilkins for a four week class that explore the history, beliefs, and your next steps at Flatland.</p>
+			</ion-col>
+		</ion-row>
+	</ion-card>
+	<ion-card (click)="openUrl('https://flatlandchurch.com/move/groups')">
+		<ion-row>
+			<ion-col col-4>
+				<img src="https://c1.staticflickr.com/9/8754/28383597226_af2f1ba06a_k.jpg">
+			</ion-col>
+			<ion-col col-8>
+				<h2>Join a Group</h2>
+				<p>Experience the belonging that comes from being in community with people. Try out one of our series-based life groups this week.</p>
 			</ion-col>
 		</ion-row>
 	</ion-card>

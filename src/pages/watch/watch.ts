@@ -29,7 +29,7 @@ export class WatchPage {
 	}
 
 	loadMore = () => {
-		const url = `https://api.flatlandchurch.com/v2/sermons?key=pk_e6afff4e5ad186e9ce389cc21c225&${this.currentPage + 1}`;
+		const url = `https://api.flatlandchurch.com/v2/sermons?key=pk_e6afff4e5ad186e9ce389cc21c225&page=${this.currentPage + 1}`;
 		this.http.get(url)
 			.subscribe(res => {
 				const data = res.json();
